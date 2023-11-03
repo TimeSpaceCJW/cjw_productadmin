@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { useFetchApi} from "~/composables/useFetchApi";
+import { useFetchApi } from "~/composables/useFetchApi";
 
 const onProductDetail = async (id: string | string[]) => {
     const { data, error } = await useFetchApi(
