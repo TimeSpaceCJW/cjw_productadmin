@@ -4,6 +4,8 @@ import { useFetchApi } from "~/composables/useFetchApi";
 
 const { data : product, pending, error } = await useFetchApi('/product')
 
+
+
 </script>
 
 <template>
@@ -22,7 +24,7 @@ const { data : product, pending, error } = await useFetchApi('/product')
         </tr>
         <tr v-for="item in product">
             <td>{{ item.id }}</td>
-            <td><NuxtLink to="/productdetail/1">{{ item.name }}</NuxtLink></td>
+            <td><NuxtLink :to="{name: 'productdetail-id', params: {id : 1} }">{{ item.name }}</NuxtLink></td>
             <!-- 다른 방식으로 데이터를 보내야할듯한데... -->
             <td>{{ item.detail }}</td>
             <td>{{ item.price }}</td>

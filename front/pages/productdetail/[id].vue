@@ -1,12 +1,19 @@
 <script setup lang="ts">
 
 import { useFetchApi } from "~/composables/useFetchApi";
+import { reactive, ref } from "../../.nuxt/imports";
+import { useRoute } from "nuxt/app";
 
+const route =useRoute();
+const productId = route.params.id;
+console.log(productId);
 const onProductDetail = async (id: string | string[]) => {
-    const { data, error } = await useFetchApi(
-        `/productdetail/${route.params.id as string}`
+    const { data } = await useFetchApi(
+        `/productdetail/${productId}`,
+        {
+            method: "get",
+        }
     );
-
     const productDetail = ref<ProductData>();
     productDetail.value = data.value as ProductData;
 
@@ -24,7 +31,6 @@ interface ProductData {
     detail: string;
     price: string;
 }
-const route =useRoute();
 const productItem = reactive<ProductData>({
     id: "",
     name: "",

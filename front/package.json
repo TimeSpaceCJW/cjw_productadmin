@@ -3,11 +3,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
+    "build": "nuxt build --dotenv .env.local --no-optional",
+    "local": "nuxt dev --dotenv .env.local --port=3000",
+    "dev": "nuxt dev --dotenv .env.dev",
+    "prod": "nuxt dev --dotenv .env.prod",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "clean": "rmdir /s .nuxt dist .output"
   },
   "devDependencies": {
     "@invictus.codes/nuxt-vuetify": "^0.2.18",
@@ -17,6 +20,7 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
+    "@nuxtjs/dotenv": "^1.4.1",
     "@pinia-plugin-persistedstate/nuxt": "^1.2.0",
     "@pinia/nuxt": "0.4.11",
     "@types/sanitize-html": "^2.9.0",
