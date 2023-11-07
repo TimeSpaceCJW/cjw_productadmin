@@ -5,10 +5,16 @@ import { useRoute } from "vue-router";
 
 const route = useRoute();
 const productId = route.params.id;
-console.log(productId);
+
+//console.log(productId);
 
 const { data : product, error } = await useFetchApi(`/productdetail/${productId}`)
 
+const productDelete = async()=> {
+    const { data : product, error } = await useFetchApi(`/productdelete/${productId}`, {
+        methods: 'delete',
+    })
+}
 
 </script>
 
@@ -32,6 +38,7 @@ const { data : product, error } = await useFetchApi(`/productdetail/${productId}
             <td>{{ product.price }}</td>
         </tr>
     </table>
+    <button @click="productDelete()">삭제</button>
 </template>
 
 <style scoped>

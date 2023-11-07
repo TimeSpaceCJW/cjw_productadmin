@@ -16,6 +16,7 @@ export function useFetchApi<T> (url: string | (() => string), options: UseFetchO
 
         onRequest({ request, options }) {
             options.headers = {...options.headers, "Access-Control-Allow-Origin": "*"};
+            //아직 의문점이 있는 요소. 작동 여부가 제대로 파악이 안됨.
         },
 
         onResponse (_ctx) {
