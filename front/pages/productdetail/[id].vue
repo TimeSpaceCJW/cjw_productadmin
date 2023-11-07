@@ -17,7 +17,8 @@ const { data : product, error } = await useFetchApi(`/productdetail/${productId}
         ADMIN 상품 상세
     </h1>
 
-    <table>
+    <pre v-if="error">상품 조회 불가 : {{ error.data }}</pre>
+    <table v-else>
         <tr>
             <th scope="col">ID</th>
             <th scope="col">상품명</th>

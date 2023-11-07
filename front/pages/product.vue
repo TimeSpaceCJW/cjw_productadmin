@@ -3,7 +3,7 @@
 import { useFetchApi } from "~/composables/useFetchApi";
 import { useRouter } from "vue-router";
 
-const { data : product, pending, error } = await useFetchApi('/product')
+const { data : product, error } = await useFetchApi('/product')
 
 const router = useRouter()
 
@@ -19,8 +19,7 @@ const productEdit = id => router.push({
         ADMIN 상품 관리
     </h1>
     <NuxtLink to="/productwrite"><button>등록</button></NuxtLink>
-    <p v-if="pending">Fetching...</p>
-    <pre v-else-if="error">상품 조회 불가 : {{ error.data }}</pre>
+    <pre v-if="error">상품 조회 불가 : {{ error.data }}</pre>
     <table v-else>
         <tr>
             <th scope="col">ID</th>
