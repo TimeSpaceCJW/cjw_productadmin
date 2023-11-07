@@ -2,20 +2,21 @@
 import type { UseFetchOptions } from 'nuxt/app'
 // @ts-ignore
 import { defu } from 'defu'
-import {useCookie, useFetch, useRuntimeConfig} from "../.nuxt/imports";
+import {useFetch, useRuntimeConfig} from "../.nuxt/imports";
 
 export function useFetchApi<T> (url: string | (() => string), options: UseFetchOptions<T> = {}) {
-    const userAuth = useCookie('token')
+
     const config = useRuntimeConfig()
 
     const defaults: UseFetchOptions<T> = {
         baseURL: config.baseUrl ?? 'http://localhost:8080',
-        key: url,
+        mode: 'cors',
+        redirect: "follow",
+        cache: "no-store",
 
-        // set user token if connected
-        headers: userAuth.value
-            ? { Authorization: `Bearer ${userAuth.value}` }
-            : {},
+        onRequest({ request, options }) {
+            options.headers = {...options.headers, "Access-Control-Allow-Origin": "*"};
+        },
 
         onResponse (_ctx) {
             // _ctx.response._data = new myBusinessResponse(_ctx.response._data)

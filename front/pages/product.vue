@@ -1,10 +1,16 @@
 <script setup lang="ts">
 
 import { useFetchApi } from "~/composables/useFetchApi";
+import { useRouter } from "vue-router";
 
 const { data : product, pending, error } = await useFetchApi('/product')
 
+const router = useRouter()
 
+const productEdit = id => router.push({
+    name: 'productdetail-id',
+    params: {id: id}
+});
 
 </script>
 
@@ -24,8 +30,7 @@ const { data : product, pending, error } = await useFetchApi('/product')
         </tr>
         <tr v-for="item in product">
             <td>{{ item.id }}</td>
-            <td><NuxtLink :to="{name: 'productdetail-id', params: {id : 1} }">{{ item.name }}</NuxtLink></td>
-            <!-- 다른 방식으로 데이터를 보내야할듯한데... -->
+            <td @click="productEdit(item.id)">{{ item.name }}</td>
             <td>{{ item.detail }}</td>
             <td>{{ item.price }}</td>
         </tr>

@@ -1,44 +1,14 @@
 <script setup lang="ts">
 
 import { useFetchApi } from "~/composables/useFetchApi";
-import { reactive, ref } from "../../.nuxt/imports";
-import { useRoute } from "nuxt/app";
+import { useRoute } from "vue-router";
 
-const route =useRoute();
+const route = useRoute();
 const productId = route.params.id;
 console.log(productId);
-const onProductDetail = async (id: string | string[]) => {
-    const { data } = await useFetchApi(
-        `/productdetail/${productId}`,
-        {
-            method: "get",
-        }
-    );
-    const productDetail = ref<ProductData>();
-    productDetail.value = data.value as ProductData;
 
-    if(productDetail) {
-        productItem.id = productDetail.value.id;
-        productItem.name = productDetail.value.name;
-        productItem.detail = productDetail.value.detail;
-        productItem.price = productDetail.value.price;
-    }
-};
+const { data : product, error } = await useFetchApi(`/productdetail/${productId}`)
 
-interface ProductData {
-    id: string;
-    name: string;
-    detail: string;
-    price: string;
-}
-const productItem = reactive<ProductData>({
-    id: "",
-    name: "",
-    detail: "",
-    price: "",
-});
-
-console.log(productItem.id);
 
 </script>
 
@@ -55,10 +25,10 @@ console.log(productItem.id);
             <th scope="col">금액</th>
         </tr>
         <tr>
-            <td>{{ productItem.id }}</td>
-            <td>{{ productItem.name }}</td>
-            <td>{{ productItem.detail }}</td>
-            <td>{{ productItem.price }}</td>
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.detail }}</td>
+            <td>{{ product.price }}</td>
         </tr>
     </table>
 </template>
