@@ -14,18 +14,17 @@ export function useFetchApi<T> (url: string | (() => string), options: UseFetchO
         redirect: "follow",
         cache: "no-store",
 
-        onRequest({ request, options }) {
-            options.headers = {...options.headers, "Access-Control-Allow-Origin": "*"};
-            //아직 의문점이 있는 요소. 작동 여부가 제대로 파악이 안됨.
+        onRequest({ request, options}) {
+            options.headers = {...options.headers, "Access-Control-Allow-Origin" : "*"};
         },
 
-        onResponse (_ctx) {
-            // _ctx.response._data = new myBusinessResponse(_ctx.response._data)
+        onResponse({ request, response, options}) {
+
         },
 
-        onResponseError (_ctx) {
-            // throw new myBusinessError()
-        }
+        onResponseError({ request, response, options}) {
+
+        },
     }
 
     // for nice deep defaults, please use unjs/defu

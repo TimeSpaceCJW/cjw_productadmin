@@ -1,9 +1,10 @@
 <script setup lang="ts">
 
 import { useFetchApi } from "~/composables/useFetchApi";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 
 const route = useRoute();
+const router = useRouter();
 const productId = route.params.id;
 
 //console.log(productId);
@@ -14,6 +15,8 @@ const productDelete = async()=> {
     const { data : product, error } = await useFetchApi(`/productdelete/${productId}`, {
         methods: 'delete',
     })
+
+    return router.push({path: '/product'})
 }
 
 </script>
