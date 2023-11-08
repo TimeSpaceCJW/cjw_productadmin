@@ -574,7 +574,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/admin-819b6705.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/admin-26788727.mjs').then((m) => m.default || m)
   },
   {
     name: "admindetail-admindetail",
@@ -582,7 +582,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/admindetail-11baca1d.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/admindetail-3063fae3.mjs').then((m) => m.default || m)
   },
   {
     name: "product",
@@ -590,7 +590,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/product-1cd06c45.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/product-cf1ee458.mjs').then((m) => m.default || m)
   },
   {
     name: "productdetail-id",
@@ -598,7 +598,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/_id_-476c9c5c.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/_id_-83b3e02f.mjs').then((m) => m.default || m)
   },
   {
     name: "productwrite",
@@ -606,7 +606,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/productwrite-bbab506b.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/productwrite-f0239c05.mjs').then((m) => m.default || m)
   }
 ];
 const routerOptions0 = {
@@ -991,5 +991,5 @@ let entry;
 }
 const entry$1 = (ctx) => entry(ctx);
 
-export { _export_sfc as _, navigateTo as a, asyncDataDefaults as b, createError as c, useNuxtApp as d, entry$1 as default, useRuntimeConfig as e, fetchDefaults as f, useRoute as g, injectHead as i, nuxtLinkDefaults as n, resolveUnrefHeadInput as r, useRouter as u };
+export { _export_sfc as _, navigateTo as a, asyncDataDefaults as b, createError as c, useNuxtApp as d, entry$1 as default, useRuntimeConfig as e, fetchDefaults as f, injectHead as i, nuxtLinkDefaults as n, resolveUnrefHeadInput as r, useRouter as u };
 //# sourceMappingURL=server.mjs.map

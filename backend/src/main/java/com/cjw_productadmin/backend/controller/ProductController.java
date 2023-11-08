@@ -29,7 +29,7 @@ public class ProductController {
     }
 
     // 저장
-    @PostMapping("/productsave/")
+    @PostMapping("/productsave")
     public Product saveProduct(@RequestBody Product product) {
         return productService.save(product);
     }
