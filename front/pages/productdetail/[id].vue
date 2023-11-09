@@ -55,7 +55,7 @@ const updateProduct = async () => {
             <input type="number" v-model="product.price" id="price"/>
         </div>
         <div>
-            <button type="submit">등록</button>
+            <button type="submit">수정</button>
         </div>
     </form>
     <button @click="productDelete()">삭제</button>
