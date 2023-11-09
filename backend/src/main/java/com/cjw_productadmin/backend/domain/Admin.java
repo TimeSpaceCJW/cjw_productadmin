@@ -6,12 +6,18 @@ import lombok.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "admin")
+@SequenceGenerator(
+        name = "ADMIN_GENERATOR"
+        , sequenceName = "ID"
+        , initialValue = 1
+        , allocationSize = 1
+)
+@Table(name = "admin", schema = "public")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Admin {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ADMIN_GENERATOR")
     @Column(name = "id")
     private Long id;
 

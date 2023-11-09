@@ -24,14 +24,12 @@ public class ProductController {
     //단일조회
     @GetMapping("/productdetail/{id}")
     public Product getProduct(@PathVariable("id") Long id) {
-        System.out.println(id);
         return productService.findOne(id);
     }
 
     // 저장
     @PostMapping("/productsave")
     public Product saveProduct(@RequestBody Product product) {
-        System.out.println(product);
         return productService.save(product);
     }
 
