@@ -2,6 +2,9 @@
 
 import { useFetchApi } from "~/composables/useFetchApi";
 import { ref } from 'vue';
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 const formData = ref({
     name : '',
@@ -19,8 +22,7 @@ const submitProduct = async() => {
             price: formData.value.price
         }
     })
-    console.log(product.value);
-    console.log(error);
+    return router.push({path: '/product'})
 }
 
 
