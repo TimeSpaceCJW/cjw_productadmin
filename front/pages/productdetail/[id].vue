@@ -3,6 +3,7 @@
 import { useFetchApi } from "~/composables/useFetchApi";
 import { useRoute, useRouter } from "vue-router";
 
+
 const route = useRoute();
 const router = useRouter();
 const productId = route.params.id;
@@ -21,12 +22,12 @@ const productDelete = async()=> {
 
 
 const updateProduct = async () => {
-    const { data: product, error } = await useFetchApi(`/productedit/${productId}`, {
+    const { data, error } = await useFetchApi(`/productedit/${productId}`, {
         method: 'put',
         body: {
-            name: product.id,
-            detail: product.detail,
-            price: product.price
+            name: product.value.name,
+            detail: product.value.detail,
+            price: product.value.price
         }
     })
     console.log(error);
