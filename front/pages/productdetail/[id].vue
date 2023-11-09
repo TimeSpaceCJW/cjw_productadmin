@@ -19,6 +19,19 @@ const productDelete = async()=> {
     return router.push({path: '/product'})
 }
 
+
+const updateProduct = async () => {
+    const { data: product, error } = await useFetchApi(`/productedit/${productId}`, {
+        method: 'put',
+        body: {
+            name: product.id,
+            detail: product.detail,
+            price: product.price
+        }
+    })
+    console.log(error);
+    return router.push({path: '/product'})
+}
 </script>
 
 <template>
@@ -27,20 +40,23 @@ const productDelete = async()=> {
     </h1>
 
     <pre v-if="error">상품 조회 불가 : {{ error.data }}</pre>
-    <table v-else>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">상품명</th>
-            <th scope="col">상품 상세정보</th>
-            <th scope="col">금액</th>
-        </tr>
-        <tr>
-            <td>{{ product.id }}</td>
-            <td>{{ product.name }}</td>
-            <td>{{ product.detail }}</td>
-            <td>{{ product.price }}</td>
-        </tr>
-    </table>
+    <form @submit.prevent="updateProduct">
+        <div>
+            <label for="name">상품명</label>
+            <input type="text" v-model="product.name" id="name"/>
+        </div>
+        <div>
+            <label for="detail">상품 상세정보</label>
+            <textarea id="detail" v-model="product.detail"/>
+        </div>
+        <div>
+            <label for="price">금액</label>
+            <input type="number" v-model="product.price" id="price"/>
+        </div>
+        <div>
+            <button type="submit">등록</button>
+        </div>
+    </form>
     <button @click="productDelete()">삭제</button>
 </template>
 
