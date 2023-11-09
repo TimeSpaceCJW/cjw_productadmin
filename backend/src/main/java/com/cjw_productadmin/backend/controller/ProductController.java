@@ -31,6 +31,7 @@ public class ProductController {
     // 저장
     @PostMapping("/productsave")
     public Product saveProduct(@RequestBody Product product) {
+        System.out.println(product);
         return productService.save(product);
     }
 

@@ -1,1 +1,0 @@
-import{u as n}from"./useFetchApi.62feb188.js";import{n as a,q as r}from"./entry.7ec7dc85.js";const i=a({__name:"admindetail",async setup(o){let t,e;return[t,e]=r(()=>n("/product")),t=await t,e(),(s,_)=>null}});export{i as default};

@@ -6,12 +6,18 @@ import lombok.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "product")
+@SequenceGenerator(
+        name = "PRODUCT_GENERATOR"
+        , sequenceName = "ID"
+        , initialValue = 1
+        , allocationSize = 1
+)
+@Table(name = "product", schema = "public")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Product {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PRODUCT_GENERATOR")
     @Column(name = "id")
     private Long id;
 

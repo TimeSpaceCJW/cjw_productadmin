@@ -606,7 +606,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/productwrite-f0239c05.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/productwrite-e36dbcd0.mjs').then((m) => m.default || m)
   }
 ];
 const routerOptions0 = {

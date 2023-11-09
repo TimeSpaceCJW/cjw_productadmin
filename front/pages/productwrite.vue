@@ -11,15 +11,15 @@ const formData = ref({
 
 const submitProduct = async() => {
     console.log(formData.value.name);
-    const {data, error } = await useFetchApi('/productsave', {
-        methods: 'post',
-        body: {
+    const {data : product, error } = await useFetchApi('/productsave', {
+        method: 'post',
+        body:{
             name: formData.value.name,
             detail: formData.value.detail,
-            price: formData.value.price,
+            price: formData.value.price
         }
     })
-    console.log(data.value);
+    console.log(product.value);
     console.log(error);
 }
 
